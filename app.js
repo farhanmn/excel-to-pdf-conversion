@@ -9,8 +9,6 @@ config()
 import { fileURLToPath } from 'url'
 import route from '#routes/index.js'
 
-// import { Connect as connectDB, Close as closeDB } from '#models/index.js'
-
 import logger from '#helper/logger.js'
 
 import { limiter } from '#helper/security.js'
