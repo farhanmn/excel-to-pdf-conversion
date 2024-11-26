@@ -1,68 +1,18 @@
-# Express Boilerplate
+# Excel to PDF Conversion for Spesific Use
 
-An Express Boilerplate with Javascript ES6 (module) style and Knex Query Builder
+This conversion is used to handle generate PDF from Excel data
 
 ## Installation
 
-Clone this express-boilerplate with git
+Clone this with git
 
 ```bash
-  git clone https://github.com/farhannjb/express-boilerplate-2
-  cd express-boilerplate-2
+  git clone https://github.com/farhanmn/excel-to-pdf-conversion
+  cd excel-to-pdf-conversion
   ## rename .env.development to .env
   ## adjust the value inside as you needed
   yarn install
 ```
-
-## Folder Structure
-
-```
-.
-├── /controllers
-│ └── authController.js   # sample controller
-├── /database
-│ └── migrations          # migration folder
-├── /helper
-│ └── response.js         # default JSON response
-├── /middlewares
-├── /models               # database models
-├── /public               # public folder/file
-├── /routes
-│ ├── v1                  # version 1 endpoint
-│ └── index.js
-├── /services
-│ └── userService.js      # sample services
-├── /tests                # test directory
-├── /views
-│ └── home.ejs            # sample EJS view
-├── env.development       # sample environment variable files
-├── .gitignore
-├── app.js
-├── eslint.config.js      # ESLint configuration
-├── jsconfig.json
-├── knexfile.js           # knex config
-├── package.json
-└── README.md
-```
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`NODE_ENV`
-
-`DB_HOST`
-`DB_PORT`
-`DB_USER`
-`DB_PASS`
-`DB_NAME`
-`DB_DIALECT`
-`DB_DEBUG`
-
-`JWT_SECRET`
-`JWT_REFRESH_SECRET`
-`JWT_ALGORITHM`
-`JWT_EXPIRES_IN`
 
 ## Tech
 
