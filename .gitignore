@@ -11,3 +11,6 @@ database/migrations/*
 
 public/*
 !public/.gitkeep
+
+generated-pdf/*
+!generated-pdf/.gitkeep

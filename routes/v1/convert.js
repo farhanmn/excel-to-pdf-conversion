@@ -4,8 +4,8 @@ const router = app.Router()
 import multer from 'multer'
 const upload = multer({ dest: 'uploads/' })
 
-import uploadController from '#controllers/uploadController.js'
+import { convertExcel } from '#controllers/uploadController.js'
 
-router.post('/', upload.single('file'), uploadController.convertExcel)
+router.post('/', upload.single('file'), convertExcel)
 
 export default router
