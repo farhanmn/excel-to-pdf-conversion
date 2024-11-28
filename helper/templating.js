@@ -18,4 +18,13 @@ const getTemplate = (name, data) => {
   }
 }
 
-export { getTemplate }
+const getBase64Signature = (signature) => {
+  let signJSON = readFileSync(
+    `${__dirname}/../templates/signature.json`
+  ).toString()
+
+  signJSON = JSON.parse(signJSON)
+  return signJSON[signature] || ''
+}
+
+export { getTemplate, getBase64Signature }

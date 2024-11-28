@@ -11,6 +11,24 @@
         text-align: center;
         vertical-align: middle;
       }
+      .height-200 {
+        height: 200px;
+      }
+      .height-200 > th, .height-200 > td {
+        vertical-align: middle;
+      }
+      .bg-green {
+        background-color:#8ED973 !important;
+      }
+      .bg-yellow {
+        background-color:#FFE599 !important;
+      }
+      .bg-honeydew {
+        background-color:#D9EAD3 !important;
+      }
+      table {
+        border-color: black !important;
+      }
     </style>
   </head>
 
@@ -71,29 +89,29 @@
           <table class="table table-bordered">
             <tbody>
               <tr>
-                <th colspan="2" rowspan="2"></th>
-                <th width="50" class="text-center">K</th>
-                <th width="50" class="text-center">C-</th>
-                <th width="50" class="text-center">C</th>
-                <th width="50" class="text-center">C+</th>
-                <th width="50" class="text-center">CB</th>
-                <th width="50" class="text-center">B</th>
+                <th colspan="2" rowspan="2" class="bg-green"></th>
+                <th width="50" class="text-center bg-green">K</th>
+                <th width="50" class="text-center bg-green">C-</th>
+                <th width="50" class="text-center bg-green">C</th>
+                <th width="50" class="text-center bg-green">C+</th>
+                <th width="50" class="text-center bg-green">CB</th>
+                <th width="50" class="text-center bg-green">B</th>
               </tr>
               <tr>
-                <th class="text-center">1</th>
-                <th class="text-center">2</th>
-                <th class="text-center">3</th>
-                <th class="text-center">4</th>
-                <th class="text-center">5</th>
-                <th class="text-center">6</th>
+                <th class="text-center bg-yellow">1</th>
+                <th class="text-center bg-yellow">2</th>
+                <th class="text-center bg-yellow">3</th>
+                <th class="text-center bg-yellow">4</th>
+                <th class="text-center bg-yellow">5</th>
+                <th class="text-center bg-yellow">6</th>
               </tr>
               <tr>
-                <th class="text-center" width="40">A.</th>
-                <th colspan="7">ASPEK PSIKOLOGIS (70%)</th>
+                <th class="text-center bg-green" width="40">A.</th>
+                <th colspan="7" class="bg-green">ASPEK PSIKOLOGIS (70%)</th>
               </tr>
               <tr>
-                <th class="text-center" width="40"></th>
-                <th colspan="7">Thinking Ability</th>
+                <th class="text-center bg-yellow" width="40"></th>
+                <th colspan="7" class="bg-yellow">Thinking Ability</th>
               </tr>
               <tr>
                 <td class="text-center">1</td>
@@ -126,8 +144,8 @@
                 <td class="text-center">{{ na_6 }}</td>
               </tr>
               <tr>
-                <th class="text-center" width="40"></th>
-                <th colspan="7">Managing Self</th>
+                <th class="text-center bg-yellow" width="40"></th>
+                <th colspan="7" class="bg-yellow">Managing Self</th>
               </tr>
               <tr>
                 <td class="text-center">1</td>
@@ -160,8 +178,8 @@
                 <td class="text-center">{{ es_6 }}</td>
               </tr>
               <tr>
-                <th class="text-center" width="40"></th>
-                <th colspan="7">Managing Other</th>
+                <th class="text-center bg-yellow" width="40"></th>
+                <th colspan="7" class="bg-yellow">Managing Other</th>
               </tr>
               <tr>
                 <td class="text-center">1</td>
@@ -184,8 +202,8 @@
                 <td class="text-center">{{ cm_6 }}</td>
               </tr>
               <tr>
-                <th class="text-center" width="40"></th>
-                <th colspan="7">Managing Task</th>
+                <th class="text-center bg-yellow" width="40"></th>
+                <th colspan="7" class="bg-yellow">Managing Task</th>
               </tr>
               <tr>
                 <td class="text-center">1</td>
@@ -228,8 +246,8 @@
                 <td class="text-center">{{ wd_6 }}</td>
               </tr>
               <tr>
-                <th class="text-center" width="40">A.</th>
-                <th colspan="7">PENILAIAN ESAI (30%)</th>
+                <th class="text-center bg-green" width="40">A.</th>
+                <th colspan="7" class="bg-green">PENILAIAN ESAI (30%)</th>
               </tr>
               <tr>
                 <td class="text-center">1</td>
@@ -242,7 +260,7 @@
                 <td class="text-center">{{ sc_6 }}</td>
               </tr>
               <tr>
-                <td class="text-center">1</td>
+                <td class="text-center">2</td>
                 <td>Motivasi</td>
                 <td class="text-center">{{ mo_1 }}</td>
                 <td class="text-center">{{ mo_2 }}</td>
@@ -252,7 +270,7 @@
                 <td class="text-center">{{ mo_6 }}</td>
               </tr>
               <tr>
-                <td class="text-center">1</td>
+                <td class="text-center">3</td>
                 <td>Aspirasi</td>
                 <td class="text-center">{{ as_1 }}</td>
                 <td class="text-center">{{ as_2 }}</td>
@@ -262,7 +280,7 @@
                 <td class="text-center">{{ as_6 }}</td>
               </tr>
               <tr>
-                <td class="text-center mx-3" colspan="8">
+                <td class="text-center mx-3 bg-honeydew" colspan="8">
                   Tanda X menunjukkan hasil scoring yang diperoleh kandidat, 
                   dengan keterangan : <br>
                   
@@ -277,19 +295,19 @@
           <table class="table table-bordered">
             <tbody>
               <tr>
-                <th class="text-center" width="40">C.</th>
-                <th>URAIAN</th>
+                <th class="text-center bg-green" width="40">C.</th>
+                <th class="bg-green">URAIAN</th>
               </tr>
               <tr>
-                <th colspan="2">Kelebihan Kandidat</th>
+                <th colspan="2" class="bg-yellow">Kelebihan Kandidat</th>
               </tr>
-              <tr>
+              <tr class="height-200">
                 <td colspan="2">{{ candidate_advantage }}</td>
               </tr>
               <tr>
-                <th colspan="2">Yang Perlu Ditingkatkan dari Kandidat</th>
+                <th colspan="2" class="bg-yellow">Yang Perlu Ditingkatkan dari Kandidat</th>
               </tr>
-              <tr>
+              <tr class="height-200">
                 <td colspan="2">{{ candidate_improvement }}</td>
               </tr>
             </tbody>
@@ -301,29 +319,29 @@
           <table class="table table-bordered">
             <tbody>
               <tr class="height-50">
-                <th colspan="6" class="text-center">Kesimpulan Penilaian Asesmen</th>
+                <th colspan="6" class="text-center bg-green">Kesimpulan Penilaian Asesmen</th>
               </tr>
               <tr class="height-50">
-                <td class="text-center"><strong>IQ</strong></td>
-                <td class="text-center"><strong>Aspek Psikologis</strong></td>
-                <td class="text-center"><strong>Esai</strong></td>
-                <td class="text-center"><strong>Skor Akhir Aspek Psikologis (70%)</strong></td>
-                <td class="text-center"><strong>Skor Akhir Esai (30%)</strong></td>
-                <td class="text-center"><strong>Total Skor Akhir</strong></td>
+                <td class="text-center bg-yellow"><strong>IQ</strong></td>
+                <td class="text-center bg-yellow"><strong>Aspek Psikologis</strong></td>
+                <td class="text-center bg-yellow"><strong>Esai</strong></td>
+                <td class="text-center bg-yellow"><strong>Skor Akhir Aspek Psikologis (70%)</strong></td>
+                <td class="text-center bg-yellow"><strong>Skor Akhir Esai (30%)</strong></td>
+                <td class="text-center bg-yellow"><strong>Total Skor Akhir</strong></td>
               </tr>
               <tr class="height-50">
                 <td class="text-center">{{ iq }}</td>
-                <td class="text-center">{{ psikological_aspect }}</td>
+                <td class="text-center">{{ psicological_aspect }}</td>
                 <td class="text-center">{{ essay }}</td>
-                <td class="text-center">{{ psikological_aspect_score }}</td>
+                <td class="text-center">{{ psicological_aspect_score }}</td>
                 <td class="text-center">{{ essay_score }}</td>
                 <td class="text-center">{{ total_score }}</td>
               </tr>
               <tr class="height-50">
-                <th colspan="6" class="text-center">Rekomendasi</th>
+                <th colspan="6" class="text-center bg-yellow">Rekomendasi</th>
               </tr>
               <tr class="height-50">
-                <td colspan="6" class="text-center"><h5>{{ recommendation }}</h5></td>
+                <td colspan="6" class="text-center"><h5><strong>{{ recommendation }}</strong></h5></td>
               </tr>
             </tbody>
           </table>
@@ -340,7 +358,7 @@
                 <td>Psikolog Pemeriksa</td>
               </tr>
               <tr>
-                <td>{{ sign }}</td>
+                <td><img src="{{ signature }}" class="img-fluid"></td>
               </tr>
               <tr>
                 <td><strong>{{ name }}</strong></td>

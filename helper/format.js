@@ -1,4 +1,5 @@
 import { ReasonPhrases, StatusCodes as SC } from 'http-status-codes'
+import { getBase64Signature } from '#helper/templating.js'
 
 const errorFormat = (e) => {
   return {
@@ -23,6 +24,7 @@ const excelFormat = (row) => {
   let sc = row['Konsep Diri']
   let mo = row['Motivasi']
   let as = row['Aspirasi']
+  let signature = getBase64Signature(row['TTD Psikolog'])
 
   let finalObj = {
     name: row['Nama Peserta'],
@@ -36,10 +38,11 @@ const excelFormat = (row) => {
     iq: row['IQ IST'],
     psicological_aspect: row['Aspek Psikologis'],
     essay: row['Esai'],
-    psikological_aspect_score: row['Skor Akhir \r\nAspek Psikologis'],
+    psicological_aspect_score: row['Skor Akhir \r\nAspek Psikologis'],
     essay_score: row['Skor Akhir \r\nEsai'],
     total_score: row['Total Skor Akhir'],
     recommendation: row['Decision'],
+    signature,
   }
 
   finalObj[`lt_${lt}`] = 'x'

@@ -35,7 +35,7 @@ const convertExcel = async (req, res) => {
       const page = await browser.newPage()
 
       for (let [index, row] of batch.entries()) {
-        console.log(row)
+        // console.log(excelFormat(row))
         const { html } = getTemplate('excel_template', excelFormat(row))
         await page.setContent(html, { waitUntil: 'load' })
 
@@ -47,7 +47,7 @@ const convertExcel = async (req, res) => {
           path: pdfPath,
           printBackground: true, // Menyertakan background warna & gambar dari CSS
           width: '1280px', // Lebar halaman A4
-          height: '1800px',
+          height: '1900px',
           preferCSSPageSize: true, // Menggunakan ukuran dari CSS @page jika ada
         })
       }
