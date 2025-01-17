@@ -10,7 +10,17 @@ const getTemplate = (name, data) => {
   const template = readFileSync(
     `${__dirname}/../templates/${name}.html`
   ).toString()
-  const html = mustache.render(template, data || {})
+
+  const enhancedData = {
+    ...data,
+    newlineToBr: function () {
+      return function (text, render) {
+        return render(text).replace(/\n/g, '<br>')
+      }
+    },
+  }
+
+  const html = mustache.render(template, enhancedData || {})
 
   return {
     template,

@@ -4,7 +4,11 @@ import xlsx from 'xlsx'
 import puppeteer from 'puppeteer'
 import { StatusCodes as SC } from 'http-status-codes'
 
-import { errorFormat, excelFormat } from '#helper/format.js'
+import {
+  errorFormat,
+  // excelFormat,
+  excelFormatPrestasi,
+} from '#helper/format.js'
 
 import defaultResponse from '#helper/response.js'
 import { getTemplate } from '#helper/templating.js'
@@ -26,7 +30,7 @@ const convertExcel = async (req, res) => {
     const sheetData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName])
 
     const batchSize = 100 // Jumlah baris per batch
-    let batchCount = 0
+    let total = 0
 
     for (let i = 0; i < sheetData.length; i += batchSize) {
       const batch = sheetData.slice(i, i + batchSize)
@@ -34,33 +38,35 @@ const convertExcel = async (req, res) => {
       const browser = await puppeteer.launch()
       const page = await browser.newPage()
 
-      for (let [index, row] of batch.entries()) {
+      for (let [, row] of batch.entries()) {
         // console.log(excelFormat(row))
-        const { html } = getTemplate('excel_template', excelFormat(row))
+        let format = excelFormatPrestasi(row)
+        const { html } = getTemplate('excel_template_prestasi', format)
         await page.setContent(html, { waitUntil: 'load' })
 
         const pdfPath = path.join(
           outputDir,
-          `report_${batchCount}_${index + 1}.pdf`
+          `Prestasi - ${format.name} - ${format.id}.pdf`
         )
         await page.pdf({
           path: pdfPath,
           printBackground: true, // Menyertakan background warna & gambar dari CSS
-          width: '1280px', // Lebar halaman A4
-          height: '1900px',
+          width: '37.8cm',
+          height: '53.46cm',
           preferCSSPageSize: true, // Menggunakan ukuran dari CSS @page jika ada
         })
+
+        total++
       }
 
       await browser.close()
-      batchCount++
     }
 
     fs.unlinkSync(file.path) // Hapus file upload setelah diproses
 
     return res.status(SC.OK).json(
       defaultResponse.renderData({
-        message: 'File uploaded successfully',
+        message: 'File uploaded successfully by total ' + total,
       })
     )
   } catch (e) {
