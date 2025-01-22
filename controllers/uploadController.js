@@ -6,8 +6,8 @@ import { StatusCodes as SC } from 'http-status-codes'
 
 import {
   errorFormat,
-  // excelFormat,
-  excelFormatPrestasi,
+  excelFormat,
+  // excelFormatPrestasi,
 } from '#helper/format.js'
 
 import defaultResponse from '#helper/response.js'
@@ -40,13 +40,13 @@ const convertExcel = async (req, res) => {
 
       for (let [, row] of batch.entries()) {
         // console.log(excelFormat(row))
-        let format = excelFormatPrestasi(row)
-        const { html } = getTemplate('excel_template_prestasi', format)
+        let format = excelFormat(row)
+        const { html } = getTemplate('excel_template', format)
         await page.setContent(html, { waitUntil: 'load' })
 
         const pdfPath = path.join(
           outputDir,
-          `Prestasi - ${format.name} - ${format.id}.pdf`
+          `Inspirasi - ${format.name} - ${format.id}.pdf`
         )
         await page.pdf({
           path: pdfPath,
