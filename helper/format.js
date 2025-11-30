@@ -132,21 +132,104 @@ const excelNewFormat = (row) => {
   let ro = row['RO'];
   let iq_scale = row['IQ IST'];
   let smart_grade = row['Kategori IQ'];
-  let v_logic = Number(row['Logika Berpikir']).toFixed(2);
-  let v_verbal = Number(row['Penalaran Verbal']).toFixed(2);
-  let v_nonverbal = Number(row['Penalaran Non Verbal']).toFixed(2);
-  let v_numeric = Number(row['Penalaran Numerik']).toFixed(2);
-  let v_analytic = Number(row['Kemampuan Analisa']).toFixed(2);
-  let v_consistency = Number(row['Keajegan Kerja']).toFixed(2);
-  let v_speed = Number(row['Kecepatan Kerja']).toFixed(2);
-  let v_accuracy = Number(row['Ketelitian Kerja']).toFixed(2);
-  let v_endurance = Number(row['Ketahanan Kerja']).toFixed(2);
-  let v_motivation = Number(row['Motivasi']).toFixed(2);
-  let v_social = Number(row['Kemampuan Sosial']).toFixed(2);
-  let v_leadership = Number(row['Kepemimpinan']).toFixed(2);
-  let v_maturity = Number(row['Kematangan']).toFixed(2);
+  let v_logic =
+    row['Logika Berpikir'] == '#N/A'
+      ? 0
+      : Number(row['Logika Berpikir']).toFixed(2);
+  let v_logic_text =
+    row['Logika Berpikir'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Logika Berpikir']).toFixed(2);
+  let v_verbal =
+    row['Penalaran Verbal'] == '#N/A'
+      ? 0
+      : Number(row['Penalaran Verbal']).toFixed(2);
+  let v_verbal_text =
+    row['Penalaran Verbal'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Penalaran Verbal']).toFixed(2);
+  let v_nonverbal =
+    row['Penalaran Non Verbal'] == '#N/A'
+      ? 0
+      : Number(row['Penalaran Non Verbal']).toFixed(2);
+  let v_nonverbal_text =
+    row['Penalaran Non Verbal'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Penalaran Non Verbal']).toFixed(2);
+  let v_numeric =
+    row['Penalaran Numerik'] == '#N/A'
+      ? 0
+      : Number(row['Penalaran Numerik']).toFixed(2);
+  let v_numeric_text =
+    row['Penalaran Numerik'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Penalaran Numerik']).toFixed(2);
+  let v_analytic =
+    row['Kemampuan Analisa'] == '#N/A'
+      ? 0
+      : Number(row['Kemampuan Analisa']).toFixed(2);
+  let v_analytic_text =
+    row['Kemampuan Analisa'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Kemampuan Analisa']).toFixed(2);
+  let v_consistency =
+    row['Keajegan Kerja'] == '#N/A'
+      ? 0
+      : Number(row['Keajegan Kerja']).toFixed(2);
+  let v_consistency_text =
+    row['Keajegan Kerja'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Keajegan Kerja']).toFixed(2);
+  let v_speed =
+    row['Kecepatan Kerja'] == '#N/A'
+      ? 0
+      : Number(row['Kecepatan Kerja']).toFixed(2);
+  let v_speed_text =
+    row['Kecepatan Kerja'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Kecepatan Kerja']).toFixed(2);
+  let v_accuracy =
+    row['Ketelitian Kerja'] == '#N/A'
+      ? 0
+      : Number(row['Ketelitian Kerja']).toFixed(2);
+  let v_accuracy_text =
+    row['Ketelitian Kerja'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Ketelitian Kerja']).toFixed(2);
+  let v_endurance =
+    row['Ketahanan Kerja'] == '#N/A'
+      ? 0
+      : Number(row['Ketahanan Kerja']).toFixed(2);
+  let v_endurance_text =
+    row['Ketahanan Kerja'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Ketahanan Kerja']).toFixed(2);
+  let v_motivation =
+    row['Motivasi'] == '#N/A' ? 0 : Number(row['Motivasi']).toFixed(2);
+  let v_motivation_text =
+    row['Motivasi'] == '#N/A' ? '#N/A' : Number(row['Motivasi']).toFixed(2);
+  let v_social =
+    row['Kemampuan Sosial'] == '#N/A'
+      ? 0
+      : Number(row['Kemampuan Sosial']).toFixed(2);
+  let v_social_text =
+    row['Kemampuan Sosial'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Kemampuan Sosial']).toFixed(2);
+  let v_leadership =
+    row['Kepemimpinan'] == '#N/A' ? 0 : Number(row['Kepemimpinan']).toFixed(2);
+  let v_leadership_text =
+    row['Kepemimpinan'] == '#N/A'
+      ? '#N/A'
+      : Number(row['Kepemimpinan']).toFixed(2);
+  let v_maturity =
+    row['Kematangan'] == '#N/A' ? 0 : Number(row['Kematangan']).toFixed(2);
+  let v_maturity_text =
+    row['Kematangan'] == '#N/A' ? '#N/A' : Number(row['Kematangan']).toFixed(2);
   let health_summary = row['Kesimpulan'];
-  let total_score = Number(row['Total Score Akhir']).toFixed(2);
+  let total_score = row['Total Score Akhir']
+    ? Number(row['Total Score Akhir']).toFixed(2)
+    : '#N/A';
   let decision = row['Decision'];
 
   let finalObj = {
@@ -158,18 +241,31 @@ const excelNewFormat = (row) => {
     iq_scale,
     smart_grade,
     v_logical: v_logic,
+    v_logical_text: v_logic_text,
     v_verbal,
+    v_verbal_text,
     v_nonverbal,
+    v_nonverbal_text,
     v_numeric,
+    v_numeric_text,
     v_analysis: v_analytic,
+    v_analysis_text: v_analytic_text,
     v_consistency,
+    v_consistency_text,
     v_speed,
+    v_speed_text,
     v_accuracy,
+    v_accuracy_text,
     v_endurance,
+    v_endurance_text,
     v_motivation,
+    v_motivation_text,
     v_social,
+    v_social_text,
     v_leadership,
+    v_leadership_text,
     v_maturity,
+    v_maturity_text,
     total_score,
     recommendation_status: decision,
     normal_status: health_summary

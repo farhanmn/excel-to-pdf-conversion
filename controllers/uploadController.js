@@ -12,17 +12,12 @@ import {
 } from '#helper/format.js';
 
 import defaultResponse from '#helper/response.js';
-import { getTemplate } from '#helper/templating.js';
+import { getTemplate, setFolderPlace } from '#helper/templating.js';
 
 const convertExcel = async (req, res) => {
   const { file } = req;
   if (!file) {
     return res.status(400).json({ message: 'No uploaded file' });
-  }
-
-  const outputDir = 'generated-pdfs';
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);
   }
 
   try {
@@ -41,13 +36,13 @@ const convertExcel = async (req, res) => {
 
       for (let [, row] of batch.entries()) {
         // console.log(excelFormat(row))
+        const outputDir = setFolderPlace(row);
         let format = excelNewFormat(row);
         const { html } = getTemplate('excel_template_2025', format);
         await page.setContent(html, { waitUntil: 'load' });
-
         const pdfPath = path.join(
           outputDir,
-          `${format.name} - ${format.id}.pdf`
+          `UNDEFINED_${format.name.toUpperCase()}.pdf`
         );
         await page.pdf({
           path: pdfPath,
